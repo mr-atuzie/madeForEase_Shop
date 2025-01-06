@@ -94,7 +94,13 @@ const Home = () => {
                 className="bg-white p-4 lg:p-8 rounded-lg shadow-lg w-11/12 max-w-md"
                 onSubmit={handleRegistration}
               >
-                <div className=" w-full flex justify-end mb-3">
+                <div className=" w-full flex justify-between mb-3">
+                  <img
+                    src={kulipaLogo}
+                    alt="Kulipa"
+                    className="w-28 h-16 lg:w-32 lg:h-20 rounded-lg object-cover"
+                  />
+
                   <button
                     onClick={() => setPopUp(false)}
                     className=" text-red-500 text-right"
@@ -127,7 +133,7 @@ const Home = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Name"
-                  className="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 mb-4 bg-blue-100 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -136,21 +142,35 @@ const Home = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email"
-                  className="w-full p-3 mb-6 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 mb-6 border rounded bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition"
+                  className="w-full flex items-center gap-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition"
                 >
-                  Go to Kulipal
+                  Visit Store
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
                 </button>
 
                 <div className="text-center mt-16 text-xs lg:text-base">
                   <p>
                     Powered by <br />
                     <span className="font-bold uppercase text-yellow-500">
-                      MadeForEase
+                      Made For Ease
                     </span>
                   </p>
                 </div>

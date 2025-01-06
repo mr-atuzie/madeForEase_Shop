@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
+import { IoMdCart, IoMdClose } from "react-icons/io";
+import madeForEaseLogo from "../assets/newLogo.jpeg";
 
 const Home = () => {
   const images = [
@@ -63,13 +65,18 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
       <div
         className="relative w-full h-screen bg-cover bg-center transition-all duration-700"
         style={{ backgroundImage: `url(${images[currentImage].url})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
+
+        <img
+          src={madeForEaseLogo}
+          alt="MadeForEase"
+          className="absolute top-6 left-6 w-10 h-10 lg:w-20 lg:h-20 rounded-lg object-cover z-20"
+        />
 
         {/* Content */}
         <AnimatePresence>
@@ -84,12 +91,23 @@ const Home = () => {
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 50, opacity: 0 }}
-                className="bg-white p-8 rounded-lg shadow-lg w-11/12 max-w-md"
+                className="bg-white p-4 lg:p-8 rounded-lg shadow-lg w-11/12 max-w-md"
                 onSubmit={handleRegistration}
               >
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <button
+                  onClick={() => setPopUp(false)}
+                  className=" text-red-500 text-right"
+                >
+                  <IoMdClose size={20} />
+                </button>
+                {/* <h2 className="text-2xl justify-center font-bold text-blue-500 mb-6">
                   Register Now
-                </h2>
+                </h2> */}
+                <p className=" text-sm">
+                  Enjoy 25% off with{" "}
+                  <span className="text-blue-500 font-medium">Kulipal</span>{" "}
+                  when you use our link for bookings.
+                </p>
                 <input
                   type="text"
                   name="name"
@@ -114,6 +132,15 @@ const Home = () => {
                 >
                   Go to Kulipal
                 </button>
+
+                <div className="text-center mt-16 text-xs lg:text-base text-white">
+                  <p>
+                    Powered by <br />
+                    <span className="font-bold uppercase text-yellow-500">
+                      MadeForEase
+                    </span>
+                  </p>
+                </div>
               </motion.form>
             </motion.div>
           )}
@@ -145,7 +172,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-xl lg:text-5xl text-yellow-500 font-bold uppercase tracking-wider"
+            className="text-xl lg:text-5xl text-yellow-500 font-extrabold uppercase tracking-wider"
           >
             {images[currentImage].caption}
           </motion.div>
@@ -155,14 +182,17 @@ const Home = () => {
             onClick={() => setPopUp(!popup)}
             className="bg-blue-600 hover:bg-blue-400 flex gap-2 text-white font-semibold py-3 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105"
           >
-            Register Now
+            Get Started
+            <IoMdCart size={15} />
           </motion.button>
 
           {/* Footer */}
           <div className="text-center mt-16 text-xs lg:text-base text-white">
             <p>
-              Powered by{" "}
-              <span className="font-bold text-yellow-500">MadeForEase</span> &{" "}
+              Powered by <br />
+              <span className="font-bold text-yellow-500">
+                MadeForEase
+              </span> &{" "}
               <span className="font-bold text-blue-500">Kulipa Business</span>
             </p>
           </div>

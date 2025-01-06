@@ -94,12 +94,12 @@ const Home = () => {
                 className="bg-white p-4 lg:p-8 rounded-lg shadow-lg w-11/12 max-w-md"
                 onSubmit={handleRegistration}
               >
-                <div className=" w-full flex justify-between mb-3">
-                  {/* <img
-                    src={kulipaLogo}
-                    alt="Kulipa"
-                    className="w-28 h-16 lg:w-32 lg:h-20 rounded-lg object-cover"
-                  /> */}
+                <div className=" w-full flex justify-betwee items-center mb-3">
+                  <img
+                    src={madeForEaseLogo}
+                    alt="MadeForEase"
+                    className="w-10 h-10 lg:w-16 lg:h-16 rounded-lg object-cover"
+                  />
 
                   <button
                     onClick={() => setPopUp(false)}
@@ -122,7 +122,7 @@ const Home = () => {
                   </button>
                 </div>
 
-                <p className=" text-center mb-5 text-sm">
+                <p className=" text-center text-gray-500 w-[75%] mb-5 text-sm">
                   Enjoy 25% off with{" "}
                   <span className="text-blue-500 font-medium">Kulipal</span>{" "}
                   when you use our link for bookings.

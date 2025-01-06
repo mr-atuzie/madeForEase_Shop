@@ -133,7 +133,7 @@ const Home = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Name"
-                  className="w-full p-3 mb-4 bg-blue-50 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 lg:p-3 mb-4 bg-blue-50 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -142,7 +142,7 @@ const Home = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email"
-                  className="w-full p-3 mb-6 border rounded bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 lg:p-3 mb-6 border rounded bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <button

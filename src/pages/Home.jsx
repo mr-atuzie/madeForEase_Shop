@@ -190,10 +190,13 @@ const Home = () => {
           <div className="text-center mt-16 text-xs lg:text-base text-white">
             <p>
               Powered by <br />
-              <span className="font-bold text-yellow-500">
+              <span className="font-bold uppercase text-yellow-500">
                 MadeForEase
-              </span> &{" "}
-              <span className="font-bold text-blue-500">Kulipa Business</span>
+              </span>{" "}
+              &{" "}
+              <span className="font-bold uppercase text-blue-500">
+                Kulipa Business
+              </span>
             </p>
           </div>
         </div>

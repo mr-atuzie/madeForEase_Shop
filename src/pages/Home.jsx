@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import Navbar from "../components/Navbar";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoMdCart, IoMdClose } from "react-icons/io";
+import { IoMdCart, IoMdClose } from "react-icons/io5";
 import madeForEaseLogo from "../assets/newLogo.jpeg";
 
 const Home = () => {

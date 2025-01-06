@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import Navbar from "../components/Navbar";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoMdCart, IoMdClose } from "react-icons/io5";
+// import { IoMdCart, IoMdClose } from "react-icons/io5";
 import madeForEaseLogo from "../assets/newLogo.jpeg";
 
 const Home = () => {
@@ -98,7 +98,8 @@ const Home = () => {
                   onClick={() => setPopUp(false)}
                   className=" text-red-500 text-right"
                 >
-                  <IoMdClose size={20} />
+                  Continue
+                  {/* <IoMdClose size={20} /> */}
                 </button>
                 {/* <h2 className="text-2xl justify-center font-bold text-blue-500 mb-6">
                   Register Now
@@ -183,7 +184,7 @@ const Home = () => {
             className="bg-blue-600 hover:bg-blue-400 flex gap-2 text-white font-semibold py-3 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105"
           >
             Get Started
-            <IoMdCart size={15} />
+            {/* <IoMdCart size={15} /> */}
           </motion.button>
 
           {/* Footer */}

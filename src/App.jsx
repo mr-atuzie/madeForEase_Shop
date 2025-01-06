@@ -1,8 +1,9 @@
+import Home from "./pages/Home";
+
 function App() {
   return (
     <>
-      <p className=" text-yellow-500">madeFoEase_shop</p>
-      <small className=" text-blue-500">coming soon</small>
+      <Home />
     </>
   );
 }

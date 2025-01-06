@@ -95,15 +95,15 @@ const Home = () => {
                 onSubmit={handleRegistration}
               >
                 <div className=" w-full flex justify-between mb-3">
-                  <img
+                  {/* <img
                     src={kulipaLogo}
                     alt="Kulipa"
                     className="w-28 h-16 lg:w-32 lg:h-20 rounded-lg object-cover"
-                  />
+                  /> */}
 
                   <button
                     onClick={() => setPopUp(false)}
-                    className=" text-red-500 text-right"
+                    className=" p-2 text-red-500 text-right"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ const Home = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Name"
-                  className="w-full p-3 mb-4 bg-blue-100 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 mb-4 bg-blue-50 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -147,7 +147,7 @@ const Home = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full flex items-center gap-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition"
+                  className="w-full flex items-center justify-center text-sm gap-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition"
                 >
                   Visit Store
                   <svg
@@ -171,6 +171,10 @@ const Home = () => {
                     Powered by <br />
                     <span className="font-bold uppercase text-yellow-500">
                       Made For Ease
+                    </span>
+                    &{" "}
+                    <span className="font-bold uppercase text-blue-500">
+                      Kulipa Business
                     </span>
                   </p>
                 </div>

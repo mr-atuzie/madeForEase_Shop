@@ -94,17 +94,29 @@ const Home = () => {
                 className="bg-white p-4 lg:p-8 rounded-lg shadow-lg w-11/12 max-w-md"
                 onSubmit={handleRegistration}
               >
-                <button
-                  onClick={() => setPopUp(false)}
-                  className=" text-red-500 text-right"
-                >
-                  Continue
-                  {/* <IoMdClose size={20} /> */}
-                </button>
-                {/* <h2 className="text-2xl justify-center font-bold text-blue-500 mb-6">
-                  Register Now
-                </h2> */}
-                <p className=" text-sm">
+                <div className=" w-full flex justify-end mb-3">
+                  <button
+                    onClick={() => setPopUp(false)}
+                    className=" text-red-500 text-right"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <p className=" text-center mb-5 text-sm">
                   Enjoy 25% off with{" "}
                   <span className="text-blue-500 font-medium">Kulipal</span>{" "}
                   when you use our link for bookings.
@@ -134,7 +146,7 @@ const Home = () => {
                   Go to Kulipal
                 </button>
 
-                <div className="text-center mt-16 text-xs lg:text-base text-white">
+                <div className="text-center mt-16 text-xs lg:text-base">
                   <p>
                     Powered by <br />
                     <span className="font-bold uppercase text-yellow-500">
@@ -184,6 +196,20 @@ const Home = () => {
             className="bg-blue-600 hover:bg-blue-400 flex gap-2 text-white font-semibold py-3 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105"
           >
             Get Started
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+              />
+            </svg>
             {/* <IoMdCart size={15} /> */}
           </motion.button>
 

@@ -26,6 +26,7 @@ const Home = () => {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
+  const [popup, setPopUp] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,6 +34,7 @@ const Home = () => {
     }, 5000); // Change image every 5 seconds
     return () => clearInterval(interval);
   }, [images.length]);
+
   return (
     <div>
       <Navbar />
@@ -49,59 +51,63 @@ const Home = () => {
           alt="MadeForEase"
           className="absolute top-6 left-6 w-10 h-10 lg:w-20 lg:h-20 rounded-lg object-cover z-20"
         /> */}
-
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center gap-6 lg:gap-10">
-          {/* Header */}
-          <div className="flex items-center gap-3">
-            <img
-              src={kulipaLogo}
-              alt="Kulipa"
-              className="w-28 h-16 lg:w-32 lg:h-20 rounded-lg object-cover"
-            />
-          </div>
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-sm lg:text-lg text-white max-w-3xl leading-relaxed"
-          >
-            Enjoy 25% off with{" "}
-            <span className="text-blue-500 font-medium">Kulipal</span> when you
-            use our link for bookings.
-          </motion.p>
+        {popup ? (
+          <form className="relative bg-white z-10 flex flex-col items-center justify-center h-full px-6 text-center gap-6 lg:gap-10"></form>
+        ) : (
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center gap-6 lg:gap-10">
+            {/* Header */}
+            <div className="flex items-center gap-3">
+              <img
+                src={kulipaLogo}
+                alt="Kulipa"
+                className="w-28 h-16 lg:w-32 lg:h-20 rounded-lg object-cover"
+              />
+            </div>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-sm lg:text-lg text-white max-w-3xl leading-relaxed"
+            >
+              Enjoy 25% off with{" "}
+              <span className="text-blue-500 font-medium">Kulipal</span> when
+              you use our link for bookings.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-xl lg:text-5xl text-white font-bold uppercase tracking-wider"
-          >
-            {images[currentImage].caption}
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-xl lg:text-5xl text-white font-bold uppercase tracking-wider"
+            >
+              {images[currentImage].caption}
+            </motion.div>
 
-          {/* Call to Action */}
-          <motion.a
-            href="https://kulipal.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="bg-blue-600 hover:bg-blue-400 flex  gap-2 text-white font-semibold py-3 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105"
-          >
-            Visit Kulipal
-          </motion.a>
-          {/* Footer */}
-          <div className="text-center mt-16 text-xs lg:text-base text-white">
-            <p>
-              Powered by{" "}
-              <span className="font-bold text-yellow-500">MadeForEase</span> &{" "}
-              <span className="font-bold text-blue-500">Kulipa Business</span>
-            </p>
+            {/* Call to Action */}
+            <motion.button
+              //   href="https://kulipal.com"
+              //   target="_blank"
+              //   rel="noopener noreferrer"
+              //   initial={{ opacity: 0, scale: 0.9 }}
+              //   animate={{ opacity: 1, scale: 1 }}
+              //   transition={{ delay: 0.9, duration: 0.8 }}
+              onClick={() => setPopUp(!popup)}
+              className="bg-blue-600 hover:bg-blue-400 flex  gap-2 text-white font-semibold py-3 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105"
+            >
+              Visit Kulipal
+            </motion.button>
+            {/* Footer */}
+            <div className="text-center mt-16 text-xs lg:text-base text-white">
+              <p>
+                Powered by{" "}
+                <span className="font-bold text-yellow-500">MadeForEase</span> &{" "}
+                <span className="font-bold text-blue-500">Kulipa Business</span>
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

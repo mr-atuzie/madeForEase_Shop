@@ -4,7 +4,7 @@ import kulipaLogo from "../assets/kulipal.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
 // import { IoMdCart, IoMdClose } from "react-icons/io5";
 import madeForEaseLogo from "../assets/newLogo.jpeg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { validateEmail } from "../utils";
@@ -52,7 +52,7 @@ const Home = () => {
 
   const { name, email } = formData;
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,7 +87,9 @@ const Home = () => {
 
       toast.success(data?.msg);
       setLoading(false);
-      navigate("https://kulipal.com");
+
+      window.location.href = "https://kulipal.com";
+      // navigate("https://kulipal.com");
       // window.open("https://kulipal.com", "_blank");
     } catch (error) {
       const message =

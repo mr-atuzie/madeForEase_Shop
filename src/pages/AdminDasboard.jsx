@@ -33,12 +33,12 @@ const AdminDashboard = () => {
             </h1>
             <p className="text-sm text-gray-500 lg:text-base mt-1">
               Welcome,{" "}
-              <span className="text-blue-600 font-semibold">
+              <span className="text-yellow-600 font-semibold">
                 Curtis Jackson
               </span>
             </p>
           </div>
-          <button className="flex justify-center items-center w-12 h-12 rounded-full bg-blue-500 text-white text-lg font-semibold shadow-md hover:bg-blue-600 transition duration-300">
+          <button className="flex justify-center items-center w-12 h-12 rounded-full bg-yellow-500 text-white text-lg font-semibold shadow-md hover:bg-yellow-600 transition duration-300">
             {getUserInitials("Curtis Jackson")}
           </button>
         </div>

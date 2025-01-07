@@ -9,7 +9,7 @@ const AdminLogin = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-white rounded-lg shadow-lg p-4 lg:p-8 w-full max-w-md"
+        className="bg-white rounded-lg shadow-lg p-4 lg:p-8 w-[95%] max-w-md"
       >
         {/* Logo */}
         <div className="text-center mb-6">

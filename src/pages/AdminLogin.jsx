@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-// import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 
 const AdminLogin = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-400 to-yellow-300">
       {/* Card Container */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md"
+        className="bg-white rounded-lg shadow-lg p-4 lg:p-8 w-full max-w-md"
       >
         {/* Logo */}
         <div className="text-center mb-6">
@@ -28,7 +28,7 @@ const AdminLogin = () => {
               Username
             </label>
             <div className="relative mt-1">
-              {/* <AiOutlineUser className="absolute left-3 top-3 text-gray-400" /> */}
+              <AiOutlineUser className="absolute left-3 top-3 text-gray-400" />
               <input
                 type="text"
                 id="username"
@@ -47,7 +47,7 @@ const AdminLogin = () => {
               Password
             </label>
             <div className="relative mt-1">
-              {/* <AiOutlineLock className="absolute left-3 top-3 text-gray-400" /> */}
+              <AiOutlineLock className="absolute left-3 top-3 text-gray-400" />
               <input
                 type="password"
                 id="password"

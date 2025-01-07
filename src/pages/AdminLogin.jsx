@@ -67,8 +67,11 @@ const AdminLogin = () => {
         </form>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-sm text-gray-500">
-          <p>&copy; 2025 Your Company. All rights reserved.</p>
+        <div className="text-center mt-6 text-xs lg:text-sm text-gray-500">
+          <p>
+            &copy; 2025 <span className=" text-yellow-500">Made for eaase</span>
+            .All rights reserved.
+          </p>
         </div>
       </motion.div>
     </div>

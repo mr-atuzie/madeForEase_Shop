@@ -22,6 +22,19 @@ const AdminDashboard = () => {
     },
   ];
 
+  function greeter() {
+    const now = new Date();
+    const hour = now.getHours();
+
+    if (hour < 12) {
+      return "Good Morning!";
+    } else if (hour < 18) {
+      return "Good Afternoon!";
+    } else {
+      return "Good Evening!";
+    }
+  }
+
   return (
     <div className="w-[95%] mx-auto py-6">
       {/* Header */}
@@ -29,12 +42,11 @@ const AdminDashboard = () => {
         <div className="flex flex-wrap justify-between items-center gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-              Dashboard
+              Admin Dashboard
             </h1>
             <p className="text-sm text-gray-500 lg:text-base ">
-              Welcome,{" "}
               <span className="text-yellow-500 font-semibold">
-                Curtis Jackson
+                {greeter()}, Fresh Prince
               </span>
             </p>
           </div>
@@ -52,7 +64,7 @@ const AdminDashboard = () => {
               <th className="px-6 py-3">S/N</th>
               <th className="px-6 py-3">Name</th>
               <th className="px-6 py-3">Email</th>
-              <th className="px-6 py-3">Created At</th>
+              <th className="px-6 whitespace-nowrap py-3">Created At</th>
             </tr>
           </thead>
           <tbody>
@@ -64,7 +76,7 @@ const AdminDashboard = () => {
                 } hover:bg-gray-100 transition`}
               >
                 <td className="px-6 py-4 font-medium">{index + 1}</td>
-                <td className="px-6 whitespace-nowrap py-4">{item.name}</td>
+                <td className="px-6  whitespace-nowrap py-4">{item.name}</td>
                 <td className="px-6 whitespace-nowrap py-4">{item.email}</td>
                 <td className="px-6 whitespace-nowrap py-4">
                   {item.createdAt}

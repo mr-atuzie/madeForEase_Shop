@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-400 to-yellow-300">
       {/* Card Container */}

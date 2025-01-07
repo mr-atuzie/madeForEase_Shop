@@ -55,12 +55,7 @@ const AdminLogin = () => {
     //   name: "Admin-001",
     // });
     try {
-      const { data } = await axios.post("/api/v1/admin/login", formData);
-
-      console.log({
-        ...formData,
-        name: "Admin-001",
-      });
+      const { data } = await axios.post("/api/v1/admin/create", formData);
 
       toast.success(data?.msg);
       setLoading(false);

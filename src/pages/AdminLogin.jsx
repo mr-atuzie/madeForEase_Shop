@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   return (
@@ -58,12 +59,14 @@ const AdminLogin = () => {
           </div>
 
           {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-          >
-            Login
-          </button>
+          <Link to={"/admin/dashboard"}>
+            <button
+              type="submit"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            >
+              Login
+            </button>
+          </Link>
         </form>
 
         {/* Footer */}

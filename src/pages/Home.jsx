@@ -73,7 +73,7 @@ const Home = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
 
-        <Link to={"/admin-login"}>
+        <Link to={"/admin/login"}>
           <img
             src={madeForEaseLogo}
             alt="MadeForEase"

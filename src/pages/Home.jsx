@@ -4,6 +4,7 @@ import kulipaLogo from "../assets/kulipal.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
 // import { IoMdCart, IoMdClose } from "react-icons/io5";
 import madeForEaseLogo from "../assets/newLogo.jpeg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const images = [
@@ -72,11 +73,13 @@ const Home = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
 
-        <img
-          src={madeForEaseLogo}
-          alt="MadeForEase"
-          className="absolute top-6 left-6 w-10 h-10 lg:w-20 lg:h-20 rounded-lg object-cover z-20"
-        />
+        <Link to={"/admin-login"}>
+          <img
+            src={madeForEaseLogo}
+            alt="MadeForEase"
+            className="absolute top-6 left-6 w-10 h-10 lg:w-20 lg:h-20 rounded-lg object-cover z-20"
+          />
+        </Link>
 
         {/* Content */}
         <AnimatePresence>

@@ -58,10 +58,15 @@ const Home = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
-    console.log("User Registered:", formData);
-    window.open("https://kulipal.com", "_blank");
+
+    try {
+      console.log("User Registered:", formData);
+      window.open("https://kulipal.com", "_blank");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

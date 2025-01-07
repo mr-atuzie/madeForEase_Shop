@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-400 to-yellow-300">
       {/* Card Container */}
@@ -59,14 +60,14 @@ const AdminLogin = () => {
           </div>
 
           {/* Login Button */}
-          <Link to={"/admin/dashboard"}>
-            <button
-              type="submit"
-              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-            >
-              Login
-            </button>
-          </Link>
+
+          <button
+            type="submit"
+            onClick={() => navigate("/admin/dashboard")}
+            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            Login
+          </button>
         </form>
 
         {/* Footer */}

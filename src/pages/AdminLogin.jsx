@@ -1,9 +1,84 @@
 import { motion } from "framer-motion";
-import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import {
+  AiOutlineMail,
+  AiOutlineLock,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { validateEmail } from "../utils";
+import axios from "axios";
 
 const AdminLogin = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const { email, password } = formData;
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (!email || !password) {
+      toast.error("Please enter all required fields");
+      setLoading(false);
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toast.error("Please enter valid email address");
+      setLoading(false);
+      return;
+    }
+
+    if (password.length < 8) {
+      toast.error("Password must be at leas8 character");
+      setLoading(false);
+      return;
+    }
+
+    // console.log({
+    //   ...formData,
+    //   name: "Admin-001",
+    // });
+    try {
+      const { data } = await axios.post("/api/v1/admin/login", formData);
+
+      console.log({
+        ...formData,
+        name: "Admin-001",
+      });
+
+      toast.success(data?.msg);
+      setLoading(false);
+
+      // window.location.href = "https://kulipal.com";
+      navigate("/admin/dashboard");
+
+      localStorage.setItem("name", data.admin.name);
+      // setPopUp(false);
+      // window.open("https://kulipal.com", "_blank");
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || error?.message || error?.toString();
+
+      setLoading(false);
+      toast.error(message);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-yellow-500 via-yellow-400 to-yellow-300">
@@ -21,21 +96,24 @@ const AdminLogin = () => {
         </div>
 
         {/* Login Form */}
-        <form className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-6">
           {/* Username Input */}
           <div>
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
-              Username
+              Email
             </label>
             <div className="relative mt-1">
-              <AiOutlineUser className="absolute left-3 top-3 text-gray-400" />
+              <AiOutlineMail className="absolute left-3 top-3 text-gray-400" />
               <input
-                type="text"
-                id="username"
-                placeholder="Enter your username"
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter your email"
                 className="w-full pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -52,22 +130,36 @@ const AdminLogin = () => {
             <div className="relative mt-1">
               <AiOutlineLock className="absolute left-3 top-3 text-gray-400" />
               <input
-                type="password"
+                type={passwordVisible ? "text" : "password"} // Toggle password visibility
                 id="password"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
                 placeholder="Enter your password"
                 className="w-full pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
+              {/* Toggle password visibility */}
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-3 text-gray-400"
+              >
+                {passwordVisible ? (
+                  <AiOutlineEyeInvisible size={20} />
+                ) : (
+                  <AiOutlineEye size={20} />
+                )}
+              </button>
             </div>
           </div>
 
           {/* Login Button */}
-
           <button
             type="submit"
-            onClick={() => navigate("/admin/dashboard")}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            disabled={loading}
+            className="w-full  disabled:opacity-40 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-lg shadow-lg transition-transform transform hover:scale-105"
           >
-            Login
+            {loading ? "Loading" : "Login"}
           </button>
         </form>
 

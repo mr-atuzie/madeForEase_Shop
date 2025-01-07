@@ -88,9 +88,10 @@ const Home = () => {
       toast.success(data?.msg);
       setLoading(false);
 
-      window.location.href = "https://kulipal.com";
+      // window.location.href = "https://kulipal.com";
       // navigate("https://kulipal.com");
-      // window.open("https://kulipal.com", "_blank");
+      setPopUp(false);
+      window.open("https://kulipal.com", "_blank");
     } catch (error) {
       const message =
         error?.response?.data?.message || error?.message || error?.toString();

@@ -29,11 +29,11 @@ const AdminDashboard = () => {
         <div className="flex flex-wrap justify-between items-center gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-              Dashboard Overview
+              Dashboard
             </h1>
-            <p className="text-sm text-gray-500 lg:text-base mt-1">
+            <p className="text-sm text-gray-500 lg:text-base ">
               Welcome,{" "}
-              <span className="text-yellow-600 font-semibold">
+              <span className="text-yellow-500 font-semibold">
                 Curtis Jackson
               </span>
             </p>
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
       </header>
 
       {/* Table */}
-      <div className="overflow-hidden rounded-lg shadow-lg bg-white">
+      <div className="rounded-lg shadow-lg bg-white">
         <table className="w-full text-sm text-left text-gray-600">
           <thead className="bg-gray-100 text-gray-700 uppercase">
             <tr>
@@ -64,9 +64,11 @@ const AdminDashboard = () => {
                 } hover:bg-gray-100 transition`}
               >
                 <td className="px-6 py-4 font-medium">{index + 1}</td>
-                <td className="px-6 py-4">{item.name}</td>
-                <td className="px-6 py-4">{item.email}</td>
-                <td className="px-6 py-4">{item.createdAt}</td>
+                <td className="px-6 whitespace-nowrap py-4">{item.name}</td>
+                <td className="px-6 whitespace-nowrap py-4">{item.email}</td>
+                <td className="px-6 whitespace-nowrap py-4">
+                  {item.createdAt}
+                </td>
               </tr>
             ))}
           </tbody>

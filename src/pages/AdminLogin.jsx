@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+// import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 
 const AdminLogin = () => {
   return (
@@ -28,7 +28,7 @@ const AdminLogin = () => {
               Username
             </label>
             <div className="relative mt-1">
-              <AiOutlineUser className="absolute left-3 top-3 text-gray-400" />
+              {/* <AiOutlineUser className="absolute left-3 top-3 text-gray-400" /> */}
               <input
                 type="text"
                 id="username"
@@ -47,7 +47,7 @@ const AdminLogin = () => {
               Password
             </label>
             <div className="relative mt-1">
-              <AiOutlineLock className="absolute left-3 top-3 text-gray-400" />
+              {/* <AiOutlineLock className="absolute left-3 top-3 text-gray-400" /> */}
               <input
                 type="password"
                 id="password"

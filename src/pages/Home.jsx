@@ -122,7 +122,7 @@ const Home = () => {
                   </button>
                 </div>
 
-                <p className=" text-center mx-auto text-gray-500 w-[75%] mb-5 text-sm">
+                <p className=" text-center mx-auto text-gray-700 w-[75%] mb-7 text-sm">
                   Enjoy 25% off with{" "}
                   <span className="text-blue-500 font-medium">Kulipal</span>{" "}
                   when you use our link for bookings.
@@ -133,7 +133,7 @@ const Home = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Name"
-                  className="w-full p-2 lg:p-3 mb-4 bg-blue-50 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2.5 lg:p-3 mb-4 bg-blue-50 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -142,7 +142,7 @@ const Home = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email"
-                  className="w-full p-2 lg:p-3 mb-6 border rounded bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2.5 lg:p-3 mb-6 border rounded bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <button

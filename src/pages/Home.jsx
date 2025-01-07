@@ -94,11 +94,11 @@ const Home = () => {
                 className="bg-white p-4 lg:p-8 rounded-lg shadow-lg w-11/12 max-w-md"
                 onSubmit={handleRegistration}
               >
-                <div className=" w-full flex justify-betwee items-center mb-3">
+                <div className=" w-full flex justify-between items-center mb-3">
                   <img
                     src={madeForEaseLogo}
                     alt="MadeForEase"
-                    className="w-10 h-10 lg:w-16 lg:h-16 rounded-lg object-cover"
+                    className="w-12 h-12 lg:w-16 lg:h-16 rounded-lg object-cover"
                   />
 
                   <button
@@ -122,7 +122,7 @@ const Home = () => {
                   </button>
                 </div>
 
-                <p className=" text-center text-gray-500 w-[75%] mb-5 text-sm">
+                <p className=" text-center mx-auto text-gray-500 w-[75%] mb-5 text-sm">
                   Enjoy 25% off with{" "}
                   <span className="text-blue-500 font-medium">Kulipal</span>{" "}
                   when you use our link for bookings.
@@ -171,7 +171,7 @@ const Home = () => {
                     Powered by <br />
                     <span className="font-bold uppercase text-yellow-500">
                       Made For Ease
-                    </span>
+                    </span>{" "}
                     &{" "}
                     <span className="font-bold uppercase text-blue-500">
                       Kulipa Business

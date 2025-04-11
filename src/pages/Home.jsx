@@ -66,38 +66,79 @@ const Home = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  // const handleRegistration = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   if (!name || !email) {
+  //     toast.error("Please enter all required fields");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   if (!validateEmail(email)) {
+  //     toast.error("Please enter valid email address");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   try {
+  //     const { data } = await axios.post("/api/v1/referrals/register", formData);
+
+  //     toast.success(data?.msg);
+  //     setLoading(false);
+
+  //     // window.location.href = "https://kulipal.com";
+  //     // navigate("https://kulipal.com");
+  //     setPopUp(false);
+  //     window.open("https://kulipal.com", "_blank");
+  //   } catch (error) {
+  //     const message =
+  //       error?.response?.data?.message || error?.message || error?.toString();
+
+  //     setLoading(false);
+  //     toast.error(message);
+  //   }
+  // };
+
   const handleRegistration = async (e) => {
     e.preventDefault();
     setLoading(true);
 
+    // Validate required fields
     if (!name || !email) {
       toast.error("Please enter all required fields");
       setLoading(false);
       return;
     }
 
+    // Validate email format
     if (!validateEmail(email)) {
-      toast.error("Please enter valid email address");
+      toast.error("Please enter a valid email address");
       setLoading(false);
       return;
     }
 
     try {
+      // Submit form data
       const { data } = await axios.post("/api/v1/referrals/register", formData);
 
-      toast.success(data?.msg);
-      setLoading(false);
+      // Success handling
+      toast.success(data?.msg || "Registration successful!");
+      setPopUp(false); // Close popup if applicable
 
-      // window.location.href = "https://kulipal.com";
-      // navigate("https://kulipal.com");
-      setPopUp(false);
+      // Navigate to external URL in a new tab
       window.open("https://kulipal.com", "_blank");
     } catch (error) {
-      const message =
-        error?.response?.data?.message || error?.message || error?.toString();
+      // Error handling
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Registration failed. Please try again.";
 
-      setLoading(false);
-      toast.error(message);
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false); // Ensure loading state is reset
     }
   };
 

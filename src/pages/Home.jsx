@@ -13,7 +13,7 @@ const Home = () => {
   const images = [
     {
       url: "https://dailypost.ng/wp-content/uploads/2023/11/Afro-Nation.jpg",
-      caption: "Event Ticket",
+      caption: "Event Ticket erx",
     },
     {
       url: "https://media-cdn.tripadvisor.com/media/photo-o/16/f0/4a/57/hotel-exterior.jpg",

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ShoppingGuide from "./pages/ShoppingGuide";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
@@ -26,6 +27,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shopping-guide" element={<ShoppingGuide />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDasboard />} />
       </Routes>

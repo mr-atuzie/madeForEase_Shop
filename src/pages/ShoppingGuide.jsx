@@ -1,13 +1,22 @@
 // ShoppingGuide.jsx
 import { Link } from "react-router-dom";
 import shoppingGuideImage from "../assets/shoppingGuide.png"; // Make sure to add the image to your assets
+import kulipaLogo from "../assets/kulipal.jpeg";
 
 const ShoppingGuide = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Kulipal</h1>
+          {/* <h1 className="text-3xl font-bold text-gray-900 mb-2">Kulipal</h1> */}
+          <div className="flex flex-col items-center gap-6">
+            {/* Kulipa Logo */}
+            <img
+              src={kulipaLogo}
+              alt="Kulipa"
+              className="w-32 h-20 rounded-lg object-cover"
+            />
+          </div>
           <p className="text-xl text-blue-600 font-semibold">
             HOW TO GET UP TO 25% DISCOUNT WHEN YOU SHOP WITH US
           </p>

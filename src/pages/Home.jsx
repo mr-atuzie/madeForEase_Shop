@@ -34,84 +34,79 @@ const Home = () => {
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden font-sans">
       {/* Background Image Slider */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${images[currentImage].url})` }}
       >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-between py-10 px-6 text-center">
+      <div className="relative z-10 h-full flex flex-col justify-between py-10 px-6 text-center">
         {/* Header Logo */}
-        <img
-          src={madeForEaseLogo}
-          alt="MadeForEase"
-          className="w-16 h-16 rounded-lg object-cover"
-        />
+        <div className="flex justify-center">
+          <img
+            src={madeForEaseLogo}
+            alt="MadeForEase"
+            className="w-16 h-16 rounded-lg object-cover shadow-md"
+          />
+        </div>
 
         {/* Main Content */}
         <div className="flex flex-col items-center gap-6">
-          {/* Kulipa Logo */}
           <img
             src={kulipaLogo}
             alt="Kulipa"
-            className="w-32 h-20 rounded-lg object-cover"
+            className="w-36 h-24 rounded-xl object-cover shadow-xl"
           />
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg text-white max-w-3xl leading-relaxed"
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-lg md:text-xl text-white max-w-2xl leading-relaxed"
           >
             Enjoy <span className="text-yellow-400 font-bold">25% off</span>{" "}
-            with <span className="text-blue-400 font-medium">Kulipal</span> when
-            you use our link for bookings.
+            with <span className="text-blue-400 font-semibold">Kulipal</span>{" "}
+            when you use our link for bookings.
           </motion.p>
 
-          {/* Current Image Caption */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl text-yellow-400 font-bold uppercase tracking-wider"
+            className="text-3xl md:text-5xl text-yellow-400 font-extrabold uppercase tracking-wide drop-shadow-md"
           >
             {images[currentImage].caption}
           </motion.div>
 
-          {/* Call to Action Button */}
-          <Link to="/shopping-guide">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-500 flex items-center gap-2 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300"
-            >
-              Get Started
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-5 h-5"
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+            <Link to="/shopping-guide">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                />
-              </svg>
-            </motion.button>
-          </Link>
+                How to Start
+              </motion.button>
+            </Link>
+            <Link to="/final page">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
+              >
+                Get 25% Off Now
+              </motion.button>
+            </Link>
+          </div>
         </div>
 
         {/* Footer */}
-        <div className="text-white text-sm">
+        <div className="text-white text-sm mt-8">
           <p>
             Powered by{" "}
             <span className="font-bold text-yellow-400">MadeForEase</span> &{" "}

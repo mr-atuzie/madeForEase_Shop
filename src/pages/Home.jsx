@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import kulipaLogo from "../assets/kulipal.jpeg";
-import madeForEaseLogo from "../assets/newLogo.jpeg";
+import madeForEaseLogo from "../assets/MFE logo.png";
 
 const Home = () => {
   const images = [
@@ -46,11 +46,11 @@ const Home = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-between py-10 px-6 text-center">
         {/* Header Logo */}
-        <div className="flex justify-center">
+        <div className="">
           <img
             src={madeForEaseLogo}
             alt="MadeForEase"
-            className="w-16 h-16 rounded-lg object-cover shadow-md"
+            className="w-16 h-16 object-cover "
           />
         </div>
 
@@ -83,7 +83,7 @@ const Home = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+          {/* <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Link to="/shopping-guide">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -102,7 +102,7 @@ const Home = () => {
                 Get 25% Off Now
               </motion.button>
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer */}

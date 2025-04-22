@@ -3,33 +3,21 @@ import kulipaLogo from "../assets/kulipal.jpeg";
 import madeForEaseLogo from "../assets/MFE logo.png";
 import { toast } from "react-toastify";
 import { validateEmail } from "../utils";
+import axios from "axios";
 
 const DiscountForm = () => {
-  const initialState = {
-    fullname: "",
-    email: "",
-    phone: "",
-    orderNumber: "",
-  };
-
-  const [formData, setFormData] = useState(initialState);
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [orderNumber, setOrderNumber] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const { fullname, email, phone, orderNumber } = initialState;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    if (!email || !phone || !fullname || orderNumber) {
+    if (!fullname || !email || !phone || !orderNumber) {
+      console.log({ fullname, email, phone, orderNumber });
       toast.error("Please enter all required fields");
       setLoading(false);
       return;
@@ -42,12 +30,22 @@ const DiscountForm = () => {
     }
 
     try {
-      // Handle form submission here
-      console.log("Form submitted:", formData);
-      // Add your API call or form processing logic
-
-      // Reset form after submission
-      setFormData(initialState);
+      console.log({ fullname, email, phone, orderNumber });
+      await axios.post("/api/v1/referrals/register", {
+        fullname,
+        email,
+        phone,
+        orderNumber,
+      });
+      toast.success(
+        `Dear ${fullname} your message has been sent,The 2ruevote team will contact you shortly`
+      );
+      setLoading(false);
+      // Reset form
+      setFullname("");
+      setEmail("");
+      setPhone("");
+      setOrderNumber("");
     } catch (error) {
       const message =
         error?.response?.data?.message || error?.message || error?.toString();
@@ -100,8 +98,8 @@ const DiscountForm = () => {
                 type="text"
                 id="fullname"
                 name="fullname"
-                value={formData.fullname}
-                onChange={handleChange}
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
                 className="peer w-full px-4 pt-6 pb-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder=" "
                 required
@@ -119,8 +117,8 @@ const DiscountForm = () => {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="peer w-full px-4 pt-6 pb-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder=" "
                 required
@@ -138,8 +136,8 @@ const DiscountForm = () => {
                 type="tel"
                 id="phone"
                 name="phone"
-                value={formData.phone}
-                onChange={handleChange}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="peer w-full px-4 pt-6 pb-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder=" "
                 required
@@ -157,8 +155,8 @@ const DiscountForm = () => {
                 type="text"
                 id="order-number"
                 name="orderNumber"
-                value={formData.orderNumber}
-                onChange={handleChange}
+                value={orderNumber}
+                onChange={(e) => setOrderNumber(e.target.value)}
                 className="peer w-full px-4 pt-6 pb-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder=" "
                 required

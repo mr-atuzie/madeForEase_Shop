@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import madeForEaseLogo from "../assets/MFE logo.png";
 import { Link } from "react-router-dom";
+import { FiShoppingBag } from "react-icons/fi";
 
 const Home = () => {
   const images = [
@@ -33,6 +34,13 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const handleVisitStore = () => {
+    // Open in new tab
+    window.open("https://kulipal.com/", "_blank");
+    // Alternatively, to open in same tab:
+    // window.location.href = "https://kulipal.com/";
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden font-sans">
       {/* Background Image Slider */}
@@ -46,12 +54,22 @@ const Home = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-between py-5 lg:py-10 px-6 text-center">
         {/* Header Logo */}
-        <div className="">
+        <div className="flex justify-between items-center">
           <img
             src={madeForEaseLogo}
             alt="MadeForEase"
-            className=" w-10 lg:w-16 lg:h-16 h-10 object-cover "
+            className="w-10 lg:w-16 lg:h-16 h-10 object-cover"
           />
+
+          <motion.button
+            onClick={handleVisitStore}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300 shadow-lg"
+          >
+            <FiShoppingBag className="text-lg" />
+            <span className="font-medium">Visit Store</span>
+          </motion.button>
         </div>
 
         {/* Main Content */}

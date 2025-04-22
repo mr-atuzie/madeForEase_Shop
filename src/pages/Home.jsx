@@ -44,7 +44,7 @@ const Home = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between py-10 px-6 text-center">
+      <div className="relative z-10 h-full flex flex-col justify-between py-5 lg:py-10 px-6 text-center">
         {/* Header Logo */}
         <div className="">
           <img
@@ -55,11 +55,11 @@ const Home = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-4 lg:gap-6">
           <img
             src={kulipaLogo}
             alt="Kulipa"
-            className="w-36 h-24 rounded-xl object-cover shadow-xl"
+            className="w-36 h-16  rounded-xl object-cover shadow-xl"
           />
 
           <motion.p
@@ -77,7 +77,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl text-yellow-400 font-extrabold uppercase tracking-wide drop-shadow-md"
+            className="text-2xl md:text-5xl text-yellow-400 font-extrabold uppercase tracking-wide drop-shadow-md"
           >
             {images[currentImage].caption}
           </motion.div>
@@ -88,7 +88,7 @@ const Home = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
+                className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition duration-300"
               >
                 Get Started
               </motion.button>

@@ -63,13 +63,13 @@ const AdminDashboard = () => {
               <img
                 src={madeForEaseLogo}
                 alt="MadeForEase Logo"
-                className="w-12 h-12 object-contain"
+                className="w-10 h-10 object-contain"
               />
               <div>
-                <h1 className="text-2xl font-bold text-gray-800 lg:text-3xl">
+                <h1 className="text-xl font-bold text-gray-800 lg:text-3xl">
                   Admin Dashboard
                 </h1>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm lg:text-base">
                   <span className="text-yellow-600 font-medium">
                     {greeter()},
                   </span>{" "}
@@ -114,6 +114,9 @@ const AdminDashboard = () => {
                       Search
                     </button>
                   </div> */}
+                  <p className="text-blue-500 text-center w-full text-xs mt-1">
+                    Scroll right to see more info
+                  </p>
                 </div>
               </div>
 

@@ -50,7 +50,7 @@ const Home = () => {
           <img
             src={madeForEaseLogo}
             alt="MadeForEase"
-            className="w-16 h-16 object-cover "
+            className=" w-10 lg:w-16 lg:h-16 h-10 object-cover "
           />
         </div>
 
@@ -84,7 +84,7 @@ const Home = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center mt-4">
-            <Link to="/shopping-guide">
+            <Link to="/discount-form">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

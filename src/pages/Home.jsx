@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-// import { Link } from "react-router-dom";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import madeForEaseLogo from "../assets/MFE logo.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const images = [
@@ -83,26 +83,17 @@ const Home = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          {/* <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+          <div className="flex items-center mt-4">
             <Link to="/shopping-guide">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
               >
-                How to Start
+                Get Started
               </motion.button>
             </Link>
-            <Link to="/final page">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
-              >
-                Get 25% Off Now
-              </motion.button>
-            </Link>
-          </div> */}
+          </div>
         </div>
 
         {/* Footer */}

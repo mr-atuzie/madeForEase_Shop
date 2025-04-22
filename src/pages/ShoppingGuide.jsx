@@ -1,6 +1,5 @@
 // ShoppingGuide.jsx
 import { Link } from "react-router-dom";
-import shoppingGuideImage from "../assets/shoppingGuide.png"; // Make sure to add the image to your assets
 import kulipaLogo from "../assets/kulipal.jpeg";
 
 const ShoppingGuide = () => {
@@ -20,14 +19,6 @@ const ShoppingGuide = () => {
           <p className="text-xl text-blue-600 font-semibold">
             HOW TO GET UP TO 25% DISCOUNT WHEN YOU SHOP WITH US
           </p>
-        </div>
-
-        <div className="mb-8">
-          <img
-            src={shoppingGuideImage}
-            alt="Shopping Guide"
-            className="w-full h-auto rounded-lg border border-gray-200"
-          />
         </div>
 
         <div className="space-y-6">

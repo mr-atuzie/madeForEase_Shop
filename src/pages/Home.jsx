@@ -68,7 +68,9 @@ const Home = () => {
             className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300 shadow-lg"
           >
             <FiShoppingBag className="text-lg" />
-            <span className="font-medium">Visit Store</span>
+            <span className="font-medium text-sm lg:text-base">
+              Visit Store
+            </span>
           </motion.button>
         </div>
 
@@ -108,7 +110,7 @@ const Home = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition duration-300"
               >
-                Get Started
+                Get Discount
               </motion.button>
             </Link>
           </div>

@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 import {
-  AiOutlineMail,
   AiOutlineLock,
   AiOutlineEye,
   AiOutlineEyeInvisible,
 } from "react-icons/ai";
+import { GrUserAdmin } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { validateEmail } from "../utils";
+// import { validateEmail } from "../utils";
 import axios from "axios";
 import madeForEaseLogo from "../assets/MFE logo.png"; // Import your logo
 
 const AdminLogin = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ username: "", password: "" });
 
-  const { email, password } = formData;
+  const { username, password } = formData;
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -33,17 +33,23 @@ const AdminLogin = () => {
     e.preventDefault();
     setLoading(true);
 
-    if (!email || !password) {
+    if (!username || !password) {
       toast.error("Please enter all required fields");
       setLoading(false);
       return;
     }
 
-    if (!validateEmail(email)) {
-      toast.error("Please enter valid email address");
+    if (username.length < 3) {
+      toast.error("username must be at least 3 characters");
       setLoading(false);
       return;
     }
+
+    // if (!validateEmail(email)) {
+    //   toast.error("Please enter valid email address");
+    //   setLoading(false);
+    //   return;
+    // }
 
     if (password.length < 8) {
       toast.error("Password must be at least 8 characters");
@@ -97,17 +103,17 @@ const AdminLogin = () => {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Email Address
+              Username
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <AiOutlineMail className="text-gray-400" />
+                <GrUserAdmin className="text-gray-400" />
               </div>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
                 onChange={handleInputChange}
                 placeholder="admin@example.com"
                 className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"

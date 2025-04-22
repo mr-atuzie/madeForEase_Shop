@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import kulipaLogo from "../assets/kulipal.jpeg";
 import madeForEaseLogo from "../assets/MFE logo.png";
 import { toast } from "react-toastify";
@@ -7,10 +7,25 @@ import axios from "axios";
 
 const DiscountForm = () => {
   const [fullname, setFullname] = useState("");
+  const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [orderNumber, setOrderNumber] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (success) {
+      timer = setTimeout(() => {
+        setSuccess(false);
+      }, 8000);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [success]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,17 +45,17 @@ const DiscountForm = () => {
     }
 
     try {
-      console.log({ fullname, email, phone, orderNumber });
+      setCustomerName(fullname);
       await axios.post("/api/v1/referrals/register", {
         fullname,
         email,
         phone,
         orderNumber,
       });
-      toast.success(
-        `Dear ${fullname} your message has been sent,The 2ruevote team will contact you shortly`
-      );
+
       setLoading(false);
+      setSuccess(true);
+
       // Reset form
       setFullname("");
       setEmail("");
@@ -90,6 +105,13 @@ const DiscountForm = () => {
             instantly on your next order.
           </p>
         </div>
+
+        {success && (
+          <p className=" text-sm text-center text-green-500 mb-2">
+            Hi {customerName} your message has been sent,our customer team will
+            contact you shortly
+          </p>
+        )}
 
         <form className="space-y-8" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

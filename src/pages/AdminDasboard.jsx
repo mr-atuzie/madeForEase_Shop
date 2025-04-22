@@ -25,6 +25,8 @@ const AdminDashboard = () => {
       const { data } = await axios.get(`/api/v1/referrals`);
       setReferrals(data);
       setLoader(false);
+
+      console.log(data);
     } catch (error) {
       const message =
         error?.response?.data?.message || error?.message || error?.toString();
@@ -129,6 +131,9 @@ const AdminDashboard = () => {
                         Email
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Phone
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Order Number
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -142,22 +147,25 @@ const AdminDashboard = () => {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {currentReferrals.map((referral, index) => (
                       <tr
-                        key={referral._id}
+                        key={referral?._id}
                         className="hover:bg-gray-50 transition-colors"
                       >
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           {indexOfFirstReferral + index + 1}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {referral.name}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          {referral?.fullname}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {referral.email}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          {referral?.email}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          123456
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          {referral?.phone}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          {referral?.orderNumber}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
                           {moment(referral.createdAt).format(
                             "MMM D, YYYY [at] h:mm A"
                           )}

@@ -54,6 +54,7 @@ const Home = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-between py-5 lg:py-10 px-6 text-center">
         {/* Header Logo */}
+
         <div className="flex justify-between items-center">
           <img
             src={madeForEaseLogo}
@@ -61,17 +62,16 @@ const Home = () => {
             className="w-10 lg:w-16 lg:h-16 h-10 object-cover"
           />
 
-          <motion.button
-            onClick={handleVisitStore}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300 shadow-lg"
-          >
-            <FiShoppingBag className="text-lg" />
-            <span className="font-medium text-sm lg:text-base">
-              Visit Store
-            </span>
-          </motion.button>
+          <Link to="/discount-form">
+            {" "}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300 shadow-lg"
+            >
+              Get Discount
+            </motion.button>
+          </Link>
         </div>
 
         {/* Main Content */}
@@ -104,15 +104,17 @@ const Home = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center mt-4">
-            <Link to="/discount-form">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition duration-300"
-              >
-                Get Discount
-              </motion.button>
-            </Link>
+            <motion.button
+              onClick={handleVisitStore}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-yellow-500 w-[180px] hover:bg-yellow-400 text-white font-semibold py-3 flex items-center gap-2 px-6 rounded-2xl shadow-lg transition duration-300"
+            >
+              <FiShoppingBag className="text-lg" />
+              <span className="font-medium text-sm lg:text-base">
+                Visit Store
+              </span>
+            </motion.button>
           </div>
         </div>
 
@@ -121,7 +123,7 @@ const Home = () => {
           <p>
             Powered by{" "}
             <span className="font-bold text-yellow-400">MadeForEase</span> &{" "}
-            <span className="font-bold text-blue-400">Kulipa Business</span>
+            <span className="font-bold text-blue-400">Kulipal Business</span>
           </p>
         </div>
       </div>
